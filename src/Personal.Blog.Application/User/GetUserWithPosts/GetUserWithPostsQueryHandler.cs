@@ -1,10 +1,10 @@
 using Dapper;
-using MediatR;
 using Personal.Blog.Application.Configuration.Data;
+using Personal.Blog.Application.Configuration.Query;
 
 namespace Personal.Blog.Application.User.GetUserWithPosts;
 
-internal sealed class GetUserWithPostsQueryHandler : IRequestHandler<GetUserWithPostsQuery, UserWithPostsDto>
+internal sealed class GetUserWithPostsQueryHandler : IQueryHandler<GetUserWithPostsQuery, UserWithPostsDto>
 {
     private readonly ISqlConnectionFactory _sqlConnectionFactory;
 

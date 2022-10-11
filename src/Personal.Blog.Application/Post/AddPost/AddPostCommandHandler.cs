@@ -1,9 +1,10 @@
 using MediatR;
+using Personal.Blog.Application.Configuration.Command;
 using Personal.Blog.Domain.SeedWork;
 
 namespace Personal.Blog.Application.Post.AddPost;
 
-internal sealed class AddPostCommandHandler : IRequestHandler<AddPostCommand, int>
+internal sealed class AddPostCommandHandler : ICommandHandler<AddPostCommand, int>
 {
     private readonly IUnitOfWork _unitOfWork;
     
