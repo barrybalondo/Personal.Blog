@@ -1,7 +1,7 @@
 using Personal.Blog.Application.Configuration.Command;
 using Personal.Blog.Application.Configuration.Processing;
 
-namespace Personal.Blog.Infrastructure.Processing;
+namespace Personal.Blog.Infrastructure.Configuration.Processing;
 
 public class CommandScheduler : ICommandsScheduler
 {

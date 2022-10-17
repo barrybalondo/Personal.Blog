@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Personal.Blog.Infrastructure.Database;
+using Personal.Blog.Infrastructure.Configuration.DataAccess;
 
 namespace Personal.Blog.Infrastructure.Domain.User;
 
@@ -10,9 +10,7 @@ public class UserEntityTypeConfiguration : IEntityTypeConfiguration<Blog.Domain.
     {
         builder.ToTable("Users", BlogContext.DefaultSchema);
         builder.HasKey(u => u.Id);
-        builder.Property(u => u.FirstName)
-            .HasColumnName("FirstName");
-        builder.Property(u => u.LastName)
-            .HasColumnName("LastName");
+        builder.Property<string>("_firstName").HasColumnName("FirstName");
+        builder.Property<string>("_lastName").HasColumnName("LastName");
     }
 }

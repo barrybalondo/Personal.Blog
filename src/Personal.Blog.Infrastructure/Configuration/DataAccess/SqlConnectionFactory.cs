@@ -2,7 +2,7 @@ using System.Data;
 using Microsoft.Data.SqlClient;
 using Personal.Blog.Application.Configuration.Data;
 
-namespace Personal.Blog.Infrastructure.Database;
+namespace Personal.Blog.Infrastructure.Configuration.DataAccess;
 
 public class SqlConnectionFactory : ISqlConnectionFactory, IDisposable
 {

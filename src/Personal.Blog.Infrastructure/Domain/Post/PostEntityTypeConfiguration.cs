@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Personal.Blog.Infrastructure.Database;
+using Personal.Blog.Infrastructure.Configuration.DataAccess;
 
 namespace Personal.Blog.Infrastructure.Domain.Post;
 
@@ -10,11 +10,8 @@ public class PostEntityTypeConfiguration : IEntityTypeConfiguration<Blog.Domain.
     {
         builder.ToTable("Posts", BlogContext.DefaultSchema);
         builder.HasKey(p => p.Id);
-        builder.Property(p => p.UserId)
-            .HasColumnName("UserId");
-        builder.Property(p => p.Title)
-            .HasColumnName("Title");
-        builder.Property(u => u.Body)
-            .HasColumnName("Body");
+        builder.Property<int>("_userId").HasColumnName("UserId");
+        builder.Property<string>("_title").HasColumnName("Title");
+        builder.Property<string>("_body").HasColumnName("Body");
     }
 }

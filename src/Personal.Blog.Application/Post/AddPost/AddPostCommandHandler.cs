@@ -1,4 +1,3 @@
-using MediatR;
 using Personal.Blog.Application.Configuration.Command;
 using Personal.Blog.Domain.SeedWork;
 
@@ -15,7 +14,7 @@ internal sealed class AddPostCommandHandler : ICommandHandler<AddPostCommand, in
 
     public async Task<int> Handle(AddPostCommand request, CancellationToken cancellationToken)
     {
-        var post = new Domain.Post.Post(request.UserId, request.Title, request.Body);
+        var post = Domain.Post.Post.AddPost(request.UserId, request.Title, request.Body);
         await _unitOfWork.PostRepository.AddAsync(post);
         await _unitOfWork.SaveAsync();
         return post.Id;

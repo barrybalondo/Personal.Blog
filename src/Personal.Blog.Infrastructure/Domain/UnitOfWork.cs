@@ -1,7 +1,7 @@
 using Personal.Blog.Domain.Post;
 using Personal.Blog.Domain.SeedWork;
 using Personal.Blog.Domain.User;
-using Personal.Blog.Infrastructure.Database;
+using Personal.Blog.Infrastructure.Configuration.DataAccess;
 using Personal.Blog.Infrastructure.Domain.Post;
 using Personal.Blog.Infrastructure.Domain.User;
 

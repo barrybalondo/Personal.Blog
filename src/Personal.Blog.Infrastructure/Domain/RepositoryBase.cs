@@ -1,13 +1,13 @@
 using Personal.Blog.Domain.SeedWork;
-using Personal.Blog.Infrastructure.Database;
+using Personal.Blog.Infrastructure.Configuration.DataAccess;
 
 namespace Personal.Blog.Infrastructure.Domain;
 
-public abstract class GenericRepositoryBase<TEntity> : IGenericRepository<TEntity> where TEntity : Entity
+public abstract class RepositoryBase<TEntity> : IRepository<TEntity> where TEntity : Entity
 {
     private readonly BlogContext _context;
 
-    protected GenericRepositoryBase(BlogContext context)
+    protected RepositoryBase(BlogContext context)
     {
         _context = context;
     }

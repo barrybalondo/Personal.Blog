@@ -5,22 +5,27 @@ namespace Personal.Blog.Domain.Post;
 public class Post : Entity
 {
     public int Id { get; }
-    
-    public int UserId { get; }
-    
-    public string Title { get; }
-    
-    public string Body { get; }
 
-    public Post()
+    private int _userId;
+
+    private string _title;
+
+    private string _body;
+
+    private Post()
     {
-        // EF Core requirement
     }
 
-    public Post(int userId, string title, string body)
+    private Post(int userId, string title, string body)
     {
-        UserId = userId;
-        Title = title;
-        Body = body;
+        _userId = userId;
+        _title = title;
+        _body = body;
     }
+
+    public static Post AddPost(int userId, string title, string body)
+    {
+        return new Post(userId, title, body);
+    }
+    
 }

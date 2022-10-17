@@ -1,18 +1,24 @@
+using Autofac;
+using Autofac.Extensions.DependencyInjection;
 using Personal.Blog.Application;
-using Personal.Blog.Infrastructure;
+using Personal.Blog.Infrastructure.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
+
 IConfiguration configuration = builder.Configuration;
+
+builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
+builder.Host.ConfigureContainer<ContainerBuilder>(
+    containerBuilder => ApplicationStartup.Initialize(
+        containerBuilder, 
+        configuration.GetConnectionString("DefaultConnection")));
+
 ConfigureServices(builder.Services);
 Configure(builder.Build());
 
 void ConfigureServices(IServiceCollection services)
 {
-    // Add services to the container.
-    services.ConfigureApplication();
-    services.ConfigureInfrastructure(configuration);
     services.AddControllers();
-    // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
     services.AddEndpointsApiExplorer();
     services.AddSwaggerGen();
 }
@@ -30,5 +36,3 @@ void Configure(WebApplication app)
     app.MapControllers();
     app.Run();
 }
-
-

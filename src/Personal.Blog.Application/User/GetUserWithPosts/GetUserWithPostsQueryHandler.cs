@@ -7,12 +7,12 @@ namespace Personal.Blog.Application.User.GetUserWithPosts;
 internal sealed class GetUserWithPostsQueryHandler : IQueryHandler<GetUserWithPostsQuery, UserWithPostsDto>
 {
     private readonly ISqlConnectionFactory _sqlConnectionFactory;
-
+    
     public GetUserWithPostsQueryHandler(ISqlConnectionFactory sqlConnectionFactory)
     {
         _sqlConnectionFactory = sqlConnectionFactory;
     }
-
+    
     public async Task<UserWithPostsDto> Handle(GetUserWithPostsQuery request, CancellationToken cancellationToken)
     {
         var connection = _sqlConnectionFactory.GetOpenConnection();

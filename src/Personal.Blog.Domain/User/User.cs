@@ -5,20 +5,24 @@ namespace Personal.Blog.Domain.User;
 public class User : Entity
 {
     public int Id { get; }
-    
-    public string FirstName { get; }
-    
-    public string LastName { get; }
 
-    public User()
+    private string _firstName;
+
+    private string _lastName;
+
+    private User()
     {
-        // EF Core requirement
     }
 
-    public User(int id, string firstName, string lastName)
+    private User(int id, string firstName, string lastName)
     {
         Id = id;
-        FirstName = firstName;
-        LastName = lastName;
+        _firstName = firstName;
+        _lastName = lastName;
+    }
+
+    public static User CreateUser(int id, string firstName, string lastName)
+    {
+        return new User(id, firstName, lastName);
     }
 }

@@ -2,7 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using Personal.Blog.Domain.Post;
 using Personal.Blog.Domain.User;
 
-namespace Personal.Blog.Infrastructure.Database;
+namespace Personal.Blog.Infrastructure.Configuration.DataAccess;
 
 public class BlogContext : DbContext
 {
