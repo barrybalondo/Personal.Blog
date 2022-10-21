@@ -9,7 +9,7 @@ public class UserEntityTypeConfiguration : IEntityTypeConfiguration<Blog.Domain.
     public void Configure(EntityTypeBuilder<Blog.Domain.User.User> builder)
     {
         builder.ToTable("Users", BlogContext.DefaultSchema);
-        builder.HasKey(u => u.Id);
+        builder.HasKey(u => u.UserId);
         builder.Property<string>("_firstName").HasColumnName("FirstName");
         builder.Property<string>("_lastName").HasColumnName("LastName");
     }

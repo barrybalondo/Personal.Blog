@@ -4,7 +4,7 @@ namespace Personal.Blog.Domain.Post;
 
 public class Post : Entity
 {
-    public int Id { get; }
+    public int? PostId { get; }
 
     private int _userId;
 
@@ -12,12 +12,9 @@ public class Post : Entity
 
     private string _body;
 
-    private Post()
+    private Post(int? postId, int userId, string title, string body)
     {
-    }
-
-    private Post(int userId, string title, string body)
-    {
+        PostId = postId;
         _userId = userId;
         _title = title;
         _body = body;
@@ -25,7 +22,7 @@ public class Post : Entity
 
     public static Post AddPost(int userId, string title, string body)
     {
-        return new Post(userId, title, body);
+        return new Post(null, userId, title, body);
     }
     
 }

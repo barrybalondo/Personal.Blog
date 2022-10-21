@@ -3,9 +3,17 @@ using Personal.Blog.Infrastructure.Configuration.DataAccess;
 
 namespace Personal.Blog.Infrastructure.Domain.Post;
 
-public class PostRepository : RepositoryBase<Blog.Domain.Post.Post>, IPostRepository
+public class PostRepository : IPostRepository
 {
-    public PostRepository(BlogContext context) : base(context)
+    private readonly BlogContext _blogContext;
+
+    public PostRepository(BlogContext blogContext)
     {
+        _blogContext = blogContext;
+    }
+
+    public async Task AddAsync(Blog.Domain.Post.Post post)
+    {
+        await _blogContext.Posts.AddAsync(post);
     }
 }

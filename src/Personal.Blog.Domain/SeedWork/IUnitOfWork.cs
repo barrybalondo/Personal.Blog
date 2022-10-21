@@ -5,8 +5,6 @@ namespace Personal.Blog.Domain.SeedWork;
 
 public interface IUnitOfWork
 {
-    IUserRepository UserRepository { get; }
-    
     IPostRepository PostRepository { get; }
     
     Task SaveAsync();

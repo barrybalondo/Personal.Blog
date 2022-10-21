@@ -11,14 +11,11 @@ public class UnitOfWork : IUnitOfWork
 {
     private readonly BlogContext _context;
     
-    public IUserRepository UserRepository { get; }
-    
     public IPostRepository PostRepository { get; }
     
     public UnitOfWork(BlogContext context)
     {
         _context = context;
-        UserRepository = new UserRepository(_context);
         PostRepository = new PostRepository(_context);
     }
     

@@ -4,7 +4,7 @@ public class CommandBase : ICommand
 {
     public Guid CommandId { get; }
 
-    public CommandBase()
+    protected CommandBase()
     {
         CommandId = Guid.NewGuid();
     }
@@ -19,7 +19,7 @@ public class CommandBase<TResult> : ICommand<TResult>
 {
     public Guid CommandId { get; }
 
-    public CommandBase()
+    protected CommandBase()
     {
         CommandId = Guid.NewGuid();
     }

@@ -27,9 +27,6 @@ public class DataAccessModule : Module
             .As<ISqlConnectionFactory>()
             .WithParameter("connectionString", _databaseConnectionString)
             .InstancePerLifetimeScope();
-        builder.RegisterType<UserRepository>()
-            .As<IUserRepository>()
-            .InstancePerLifetimeScope();
         builder.RegisterType<PostRepository>()
             .As<IPostRepository>()
             .InstancePerLifetimeScope();

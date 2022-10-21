@@ -4,25 +4,21 @@ namespace Personal.Blog.Domain.User;
 
 public class User : Entity
 {
-    public int Id { get; }
+    public int? UserId { get; }
 
     private string _firstName;
 
     private string _lastName;
 
-    private User()
+    private User(int? userId, string firstName, string lastName)
     {
-    }
-
-    private User(int id, string firstName, string lastName)
-    {
-        Id = id;
+        UserId = userId;
         _firstName = firstName;
         _lastName = lastName;
     }
 
-    public static User CreateUser(int id, string firstName, string lastName)
+    public static User CreateUser(string firstName, string lastName)
     {
-        return new User(id, firstName, lastName);
+        return new User(null, firstName, lastName);
     }
 }

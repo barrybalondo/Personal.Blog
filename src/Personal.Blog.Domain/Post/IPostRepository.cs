@@ -1,7 +1,6 @@
-using Personal.Blog.Domain.SeedWork;
-
 namespace Personal.Blog.Domain.Post;
 
-public interface IPostRepository : IRepository<Post>
+public interface IPostRepository
 {
+    Task AddAsync(Post post);
 }

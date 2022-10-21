@@ -4,10 +4,10 @@ namespace Personal.Blog.Application.User.GetUserWithPosts;
 
 public class GetUserWithPostsQuery : IQuery<UserWithPostsDto>
 {
-    public int Id { get; }
+    public int UserId { get; }
     
-    public GetUserWithPostsQuery(int id)
+    public GetUserWithPostsQuery(int userId)
     {
-        Id = id;
+        UserId = userId;
     }
 }

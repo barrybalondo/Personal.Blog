@@ -3,10 +3,8 @@ using Personal.Blog.Application.Configuration.Command;
 
 namespace Personal.Blog.Application.Post.AddPost;
 
-public class AddPostCommand : CommandBase<int>
+public class AddPostCommand : CommandBase<Unit>
 {
-    public Guid CommandId { get; }
-    
     public int UserId { get; }
     
     public string Title { get; }
